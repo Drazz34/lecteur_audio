@@ -1,11 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap');
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
     --dark: #333;
-    --color-bg: rgb(255, 218, 158);
     --color-white: #F1F1F1;
+    font-family: 'Metal Mania', cursive;
+    letter-spacing: 2px;
 }
 
 body {
@@ -38,6 +41,7 @@ body {
     background-image: url('images/metal1.jpg');
     background-size: cover;
     border: 2px solid red;
+    text-align: center;
 }
 
 .player {
@@ -55,10 +59,10 @@ body {
     -3px -3px 3px rgba(0, 0, 0, 0.1);
 }
 
-.titre {
+.artiste {
     color: red;
     font-weight: 400;
-    font-size: 2rem;
+    font-size: 2.5rem;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -112,7 +116,7 @@ body {
 
 /* ------------------ fin boutons ----------------- */
 
-/* ------------------ début input range ----------------- */
+/* ------------------ début input range et mute ----------------- */
 
 .volume {
     display: flex;
@@ -123,13 +127,20 @@ body {
 
 .volume .mute {
   display: flex;
-  font-size: 1.2rem;
+  font-size: 1.5rem;
   margin-right: 20px;
+  cursor: pointer;
+  transition: 0.2s;
+  color: var(--dark);
+}
+
+.volume .mute:hover {
+  color: rgba(255, 69, 0);
 }
 
 input[type=range] {
     width: 70%;
-    margin: 11.5px 0;
+    /* margin: 11.5px 0; */
     background-color: transparent;
     appearance: none;
 }
@@ -143,7 +154,7 @@ input[type=range]::-webkit-slider-runnable-track {
   height: 10px;
   cursor: pointer;
   box-shadow: 1px 1px 1px #FF0000;
-  background: #FFFFFF;
+  background: linear-gradient(90deg, rgba(255,152,0,0.6907095601912641) 30%, rgb(255, 0, 0) 100%);;
   border-radius: 3px;
   border: 1px solid #FF0000;
 }
@@ -154,22 +165,23 @@ input[type=range]::-webkit-slider-thumb {
   height: 31px;
   width: 12px;
   border-radius: 4px;
-  background: #000000;
+  background: var(--dark);
   cursor: pointer;
   -webkit-appearance: none;
   margin-top: -11.5px;
 }
 
-input[type=range]:focus::-webkit-slider-runnable-track {
+/* input[type=range]:focus::-webkit-slider-runnable-track {
   background: #FFFFFF;
-}
+} */
 
 input[type=range]::-moz-range-track {
   width: 100%;
   height: 10px;
   cursor: pointer;
   box-shadow: 1px 1px 1px #FF0000;
-  background: #FFFFFF;
+  /* background: #FFFFFF; */
+  background: linear-gradient(90deg, rgba(255,152,0,0.6907095601912641) 30%, rgb(255, 0, 0) 100%);;
   border-radius: 3px;
   border: 1px solid #FF0000;
 }
@@ -180,7 +192,7 @@ input[type=range]::-moz-range-thumb {
   height: 31px;
   width: 12px;
   border-radius: 4px;
-  background: #000000;
+  background: var(--dark);
   cursor: pointer;
 }
 
@@ -194,14 +206,14 @@ input[type=range]::-ms-track {
 }
 
 input[type=range]::-ms-fill-lower {
-  background: #FFFFFF;
+  background: orange;
   border: 1px solid #FF0000;
   border-radius: 6px;
   box-shadow: 1px 1px 1px #FF0000;
 }
 
 input[type=range]::-ms-fill-upper {
-  background: #FFFFFF;
+  background: orangered;
   border: 1px solid #FF0000;
   border-radius: 6px;
   box-shadow: 1px 1px 1px #FF0000;

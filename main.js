@@ -6,25 +6,40 @@ const stopper = document.querySelector(".stop");
 const audio = document.querySelector("audio");
 const vol = document.querySelector("#volume");
 const mute = document.querySelector(".mute");
+const artiste = document.querySelector(".artiste");
 
-console.dir(audio);
+// console.dir(audio);
 
 const liste = [
     {
         src: "src/Metallica-Lux_Æterna.mp3",
-        nom: "Lux Æterna"
+        nom: "Lux Æterna",
+        artiste: "Metallica"
     },
     {
         src: "src/Metallica-Master_of_Puppets.mp3",
-        nom: "Master of Puppets"
+        nom: "Master of Puppets",
+        artiste: "Metallica"
+    },
+    {
+        src: "src/Nirvana-Smells_Like_Teen_Spirit.mp3",
+        nom: "Smells Like Teen Spirit",
+        artiste: "Nirvana"
     },
     {
         src: "src/Metallica-Enter_Sandman.mp3",
-        nom: "Enter Sandman"
+        nom: "Enter Sandman",
+        artiste: "Metallica"
     },
     {
         src: "src/Metallica-Lords_of_Summer.mp3",
-        nom: "Lords of Summer"
+        nom: "Lords of Summer",
+        artiste: "Metallica"
+    },
+    {
+        src: "src/The_Offspring-The_Kids_Aren't_Alright.mp3",
+        nom: "The Kids Aren't Alright",
+        artiste: "The Offspring"
     }
 ];
 
@@ -64,6 +79,7 @@ stopper.addEventListener("click", e => {
 // --------- affiche le titre de la musique et change de musique -----------
 
 function loadMusique(liste) {
+    artiste.textContent = liste.artiste;
     titre.textContent = liste.nom;
     audio.src = liste.src;
 }
@@ -126,4 +142,18 @@ function remetSon() {
 
 mute.addEventListener("click", () => {
     son_mute ? coupeSon() : remetSon ()
+});
+
+// ----------- Passer automatiquement à la chanson suivante en fin de chanson -------
+
+// audio.addEventListener("ended", suivantMusique);
+audio.addEventListener("ended", () => {
+    if (i === liste.length - 1) {
+        i = 0;
+        loadMusique(liste[i]);
+        musique_play = false;
+        play.innerHTML = `<ion-icon name="play-outline"></ion-icon>`;
+    } else {
+        suivantMusique();
+    }
 });
