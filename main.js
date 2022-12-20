@@ -5,6 +5,9 @@ const play = document.querySelector(".play_pause");
 const stopper = document.querySelector(".stop");
 const audio = document.querySelector("audio");
 const vol = document.querySelector("#volume");
+const mute = document.querySelector(".mute");
+
+console.dir(audio);
 
 const liste = [
     {
@@ -99,6 +102,30 @@ suivant.addEventListener("click", suivantMusique);
 
 // --------- choix du volume ----------
 
-vol.addEventListener("input", e => {
+vol.addEventListener("input", () => {
     audio.volume = vol.value / 100;
 })
+
+// ----------- Couper le son ------------
+
+let son_mute = true;
+
+function coupeSon() {
+    son_mute = false;
+    audio.muted = true;
+    mute.innerHTML = `<ion-icon name="volume-mute-outline"></ion-icon>`;
+}
+
+// ------------ Remettre le son ----------
+
+function remetSon() {
+    son_mute = true;
+    audio.muted = false;
+    mute.innerHTML = `<ion-icon name="volume-high-outline"></ion-icon>`;
+}
+
+// ---------- Couper et remettre le volume -------
+
+mute.addEventListener("click", () => {
+    son_mute ? coupeSon() : remetSon ()
+});
