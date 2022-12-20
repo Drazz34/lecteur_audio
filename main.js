@@ -35,7 +35,6 @@ let musique_play = false;
 function playMusique() {
     musique_play = true;
     audio.play();
-    // play.classList.add("active");
     play.innerHTML = `<ion-icon name="pause-outline"></ion-icon>`;
 }
 
@@ -44,7 +43,6 @@ function playMusique() {
 function pauseMusique() {
     musique_play = false;
     audio.pause();
-    // play.classList.remove("active");
     play.innerHTML = `<ion-icon name="play-outline"></ion-icon>`;
 }
 

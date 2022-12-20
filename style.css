@@ -13,7 +13,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #0b152f;
+    background: linear-gradient(0deg, rgba(42,72,149,1) 0%, rgba(11,21,47,1) 100%);
 }
 
 .musique {
