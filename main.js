@@ -2,7 +2,7 @@ const titre = document.querySelector(".fond");
 const suivant = document.querySelector(".suivant");
 const retour = document.querySelector(".retour");
 const play = document.querySelector(".play_pause");
-const stop = document.querySelector(".stop");
+const stopper = document.querySelector(".stop");
 const audio = document.querySelector("audio");
 const vol = document.querySelector("#volume");
 
@@ -53,7 +53,7 @@ play.addEventListener("click", () => (
 
 // --------- stoppe la musique et la remet à zéro --------
 
-stop.addEventListener("click", e => {
+stopper.addEventListener("click", e => {
     audio.pause();
     audio.currentTime = 0;
     musique_play = false;
