@@ -77,6 +77,7 @@ stopper.addEventListener("click", () => {
     audio.currentTime = 0;
     duration_slider.value = 0;
     musique_play = false;
+    current_time.innerHTML = "00:00";
     play.innerHTML = `<ion-icon name="play-outline"></ion-icon>`;
 })
 
@@ -201,4 +202,4 @@ const format_time = (time) => {
 setInterval(() => {
     duration_slider.value = audio.currentTime;
     current_time.innerHTML = format_time(audio.currentTime);    
-}, 1000)
+}, 500)
