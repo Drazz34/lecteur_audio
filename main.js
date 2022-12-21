@@ -7,6 +7,9 @@ const audio = document.querySelector("audio");
 const vol = document.querySelector("#volume");
 const mute = document.querySelector(".mute");
 const artiste = document.querySelector(".artiste");
+const current_time = document.querySelector(".current_time");
+const duration_time = document.querySelector(".duration_time");
+const duration_slider = document.querySelector(".duration_slider");
 
 // console.dir(audio);
 
@@ -72,16 +75,29 @@ play.addEventListener("click", () => {
 stopper.addEventListener("click", () => {
     audio.pause();
     audio.currentTime = 0;
+    duration_slider.value = 0;
     musique_play = false;
     play.innerHTML = `<ion-icon name="play-outline"></ion-icon>`;
 })
 
-// --------- affiche le titre de la musique et change de musique -----------
+// --------- affiche le titre, la durée de la musique et change de musique -----------
 
-function loadMusique(liste) {
+function loadMusique(liste) { 
+    duration_slider.value = 0;
     artiste.textContent = liste.artiste;
     titre.textContent = liste.nom;
     audio.src = liste.src;
+
+    // setTimeout(() => {
+    //     duration_slider.max = audio.duration;
+    //     duration_time.innerHTML = format_time(audio.duration);
+    // }, 500);
+    // current_time.innerHTML = "00:00";
+
+    audio.onloadedmetadata = () => {
+        duration_slider.max = audio.duration;
+        duration_time.innerHTML = format_time(audio.duration);
+    }
 }
 
 let i = 0;
@@ -158,3 +174,32 @@ audio.addEventListener("ended", () => {
         suivantMusique();
     }
 });
+
+// --------------- Changer la durée de la chanson ---------------
+
+duration_slider.addEventListener("change", e => {
+    audio.currentTime = duration_slider.value;
+})
+
+// ------------------- Format durée 00:00 ---------------
+
+const format_time = (time) => {
+    let min = Math.floor(time / 60);
+    if(min < 10) {
+        min = "0" + min;
+    }
+
+    let sec = Math.floor(time % 60);
+    if(sec < 10) {
+        sec = "0" + sec;
+    }
+
+    return `${min}:${sec}`;
+}
+
+// ------------------ Affichage temps chanson en cours ---------
+
+setInterval(() => {
+    duration_slider.value = audio.currentTime;
+    current_time.innerHTML = format_time(audio.currentTime);    
+}, 1000)

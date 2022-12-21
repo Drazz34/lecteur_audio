@@ -112,7 +112,25 @@ body {
 
 /* ------------------ fin boutons ----------------- */
 
-/* ------------------ début input range et mute ----------------- */
+/* ------------------ début input durée de la chanson ----------------- */
+
+.song_timer {
+  margin: 15px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+
+.current_time, .duration_time {
+  width: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--dark);
+}
+/* ------------------ fin input durée de la chanson ----------------- */
+
+/* ------------------ début input volume et mute ----------------- */
 
 .volume {
     display: flex;
