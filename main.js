@@ -63,13 +63,13 @@ function pauseMusique() {
 
 // ------- alterne entre joue la musique et musique en pause ---------
 
-play.addEventListener("click", () => (
-    musique_play ? pauseMusique() : playMusique())
-);
+play.addEventListener("click", () => {
+    musique_play ? pauseMusique() : playMusique()
+});
 
 // --------- stoppe la musique et la remet à zéro --------
 
-stopper.addEventListener("click", e => {
+stopper.addEventListener("click", () => {
     audio.pause();
     audio.currentTime = 0;
     musique_play = false;
@@ -144,9 +144,10 @@ mute.addEventListener("click", () => {
     son_mute ? coupeSon() : remetSon ()
 });
 
-// ----------- Passer automatiquement à la chanson suivante en fin de chanson -------
+// audio.addEventListener("ended", suivantMusique); -----  --> pour enchaîner les musiques sans se soucier de la longueur de la playlist
 
-// audio.addEventListener("ended", suivantMusique);
+// ----------- Passer automatiquement à la chanson suivante en fin de chanson, arrêt de lecture à la fin de la playlist -------
+
 audio.addEventListener("ended", () => {
     if (i === liste.length - 1) {
         i = 0;
