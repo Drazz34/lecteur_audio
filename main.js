@@ -88,11 +88,7 @@ function loadMusique(liste) {
     titre.textContent = liste.nom;
     audio.src = liste.src;
 
-    // setTimeout(() => {
-    //     duration_slider.max = audio.duration;
-    //     duration_time.innerHTML = format_time(audio.duration);
-    // }, 500);
-    // current_time.innerHTML = "00:00";
+    audio.volume = vol.value / 100;
 
     audio.onloadedmetadata = () => {
         duration_slider.max = audio.duration;
@@ -143,6 +139,7 @@ let son_mute = true;
 function coupeSon() {
     son_mute = false;
     audio.muted = true;
+    vol.value = 0;
     mute.innerHTML = `<ion-icon name="volume-mute-outline"></ion-icon>`;
 }
 
@@ -151,6 +148,8 @@ function coupeSon() {
 function remetSon() {
     son_mute = true;
     audio.muted = false;
+    vol.value = 25;
+    audio.volume = vol.value / 100;
     mute.innerHTML = `<ion-icon name="volume-high-outline"></ion-icon>`;
 }
 
