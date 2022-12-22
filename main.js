@@ -1,3 +1,5 @@
+// Déclaration des variables ciblant des éléments HTML
+
 const titre = document.querySelector(".fond");
 const suivant = document.querySelector(".suivant");
 const retour = document.querySelector(".retour");
@@ -12,6 +14,8 @@ const duration_time = document.querySelector(".duration_time");
 const duration_slider = document.querySelector(".duration_slider");
 
 // console.dir(audio);
+
+// Tableau d'objets contenant les informations des chansons
 
 const liste = [
     {
@@ -46,9 +50,10 @@ const liste = [
     }
 ];
 
-let musique_play = false;
 
 // ------- joue la musique ---------
+
+let musique_play = false;
 
 function playMusique() {
     musique_play = true;
@@ -154,7 +159,7 @@ function remetSon() {
     mute.innerHTML = `<ion-icon name="volume-high-outline"></ion-icon>`;
 }
 
-// ---------- Couper et remettre le volume -------
+// ---------- Alterner entre couper et remettre le volume -------
 
 mute.addEventListener("click", () => {
     son_mute ? coupeSon() : remetSon ()
@@ -177,7 +182,7 @@ audio.addEventListener("ended", () => {
 
 // --------------- Changer la durée de la chanson ---------------
 
-duration_slider.addEventListener("change", e => {
+duration_slider.addEventListener("change", () => {
     audio.currentTime = duration_slider.value;
 })
 
@@ -203,3 +208,21 @@ setInterval(() => {
     duration_slider.value = audio.currentTime;
     current_time.innerHTML = format_time(audio.currentTime);    
 }, 500)
+
+
+
+
+
+// 
+
+// function randomTrack(){
+
+//     // Générer un nombre aléatoire compris entre 0 et la longueur du tableau list_music
+//     let randomIndex = Math.floor(Math.random() * music_list.length);
+  
+//     // Charger et jouer la chanson sélectionnée aléatoirement
+//     loadTrack(randomIndex);
+//     playpause_btn.innerHTML = '<i class="fa fa-pause-circle fa-5x"></i>';
+//     curr_track.play();
+//     isPlaying = true;
+//   }
