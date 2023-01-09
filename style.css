@@ -242,7 +242,6 @@ input[type=range]::-ms-thumb {
 .mo-fire {
     height: auto;
     position: fixed;
-    left: 20%;
     bottom: -50px;
     z-index: -1;
   }
@@ -257,7 +256,6 @@ input[type=range]::-ms-thumb {
     width: 100%;
     height: auto;
     position:relative;
-    right:40px;
   }
 
   .flame {
