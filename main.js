@@ -12,12 +12,20 @@ const artiste = document.querySelector(".artiste");
 const current_time = document.querySelector(".current_time");
 const duration_time = document.querySelector(".duration_time");
 const duration_slider = document.querySelector(".duration_slider");
+const navToggler = document.querySelector(".nav-toggler");
+const songList = document.querySelector(".song_list");
+const songs = document.querySelectorAll(".song");
 
 // console.dir(audio);
 
 // Tableau d'objets contenant les informations des chansons
 
 const liste = [
+    {
+        src: "src/Metallica-Screaming_Suicide.mp3",
+        nom: "Screaming Suicide",
+        artiste: "Metallica"
+    },
     {
         src: "src/Metallica-Lux_Æterna.mp3",
         nom: "Lux Æterna",
@@ -49,6 +57,17 @@ const liste = [
         artiste: "The Offspring"
     }
 ];
+
+songs.forEach((song) => {
+    song.addEventListener("click", (event) => {
+        // Récupérer l'index de la chanson sélectionnée
+        const songIndex = event.target.getAttribute("data-index");
+        // Charger les informations de la chanson sélectionnée
+        loadMusique(liste[songIndex]);
+        // Lancer la musique
+        playMusique();
+    });
+});
 
 
 // ------- joue la musique ---------
@@ -209,8 +228,18 @@ setInterval(() => {
     current_time.innerHTML = format_time(audio.currentTime);    
 }, 500)
 
+// Menu toggle
+
+const hamburgerBtn = document.querySelector(".nav-toggler");
 
 
+
+hamburgerBtn.addEventListener("click", toggleNav)
+
+function toggleNav() {
+    hamburgerBtn.classList.toggle("active");
+    songList.classList.toggle("active");
+}
 
 
 // 
