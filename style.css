@@ -73,12 +73,6 @@ body {
   padding: 20px;
   left: -270px;
   top: 110px;
-  /* transform: translateY(-200%); */
-  transition: transform 0.3s cubic-bezier(0.73, 0.11, 0.67, 0.84);
-}
-
-.song_list.active {
-  transform: translate(0);
 }
 
 .song {
@@ -87,11 +81,11 @@ body {
   border-bottom: 1px solid #ccc;
   cursor: var(--curseur);
   display: block;
+  transition: all 0.3s;
 }
 
 .song:hover {
   background-color: #444;
-  /* couleur un peu plus foncée lorsque la souris est sur l'élément */
   color: #ff0000;
 }
 
@@ -431,6 +425,8 @@ input[type=range]::-ms-thumb {
     display: none;
   }
 }
+
+/* Responsive */
 
 @media screen and (max-width: 410px) {
   .player {
