@@ -22,13 +22,13 @@ const songs = document.querySelectorAll(".song");
 
 const liste = [
     {
-        src: "src/Metallica-Screaming_Suicide.mp3",
-        nom: "Screaming Suicide",
+        src: "src/Metallica-Lux_Æterna.mp3",
+        nom: "Lux Æterna",
         artiste: "Metallica"
     },
     {
-        src: "src/Metallica-Lux_Æterna.mp3",
-        nom: "Lux Æterna",
+        src: "src/Metallica-Screaming_Suicide.mp3",
+        nom: "Screaming Suicide",
         artiste: "Metallica"
     },
     {
