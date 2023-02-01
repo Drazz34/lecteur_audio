@@ -15,6 +15,7 @@ const duration_slider = document.querySelector(".duration_slider");
 const navToggler = document.querySelector(".nav-toggler");
 const songList = document.querySelector(".song_list");
 const songs = document.querySelectorAll(".song");
+const hamburgerBtn = document.querySelector(".nav-toggler");
 
 // console.dir(audio);
 
@@ -66,8 +67,8 @@ songs.forEach((song) => {
         loadMusique(liste[songIndex]);
         // Lancer la musique
         playMusique();
-    });
-});
+    })
+})
 
 
 // ------- joue la musique ---------
@@ -91,8 +92,8 @@ function pauseMusique() {
 // ------- alterne entre joue la musique et musique en pause ---------
 
 play.addEventListener("click", () => {
-    musique_play ? pauseMusique() : playMusique()
-});
+    musique_play ? pauseMusique() : playMusique();
+})
 
 // --------- stoppe la musique et la remet à zéro --------
 
@@ -181,8 +182,8 @@ function remetSon() {
 // ---------- Alterner entre couper et remettre le volume -------
 
 mute.addEventListener("click", () => {
-    son_mute ? coupeSon() : remetSon ()
-});
+    son_mute ? coupeSon() : remetSon ();
+})
 
 // audio.addEventListener("ended", suivantMusique); -----  --> pour enchaîner les musiques sans se soucier de la longueur de la playlist
 
@@ -197,7 +198,7 @@ audio.addEventListener("ended", () => {
     } else {
         suivantMusique();
     }
-});
+})
 
 // --------------- Changer la durée de la chanson ---------------
 
@@ -230,11 +231,8 @@ setInterval(() => {
 
 // Menu toggle
 
-const hamburgerBtn = document.querySelector(".nav-toggler");
 
-
-
-hamburgerBtn.addEventListener("click", toggleNav)
+hamburgerBtn.addEventListener("click", toggleNav);
 
 function toggleNav() {
     hamburgerBtn.classList.toggle("active");
