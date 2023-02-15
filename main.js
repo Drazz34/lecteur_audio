@@ -62,9 +62,9 @@ const liste = [
 songs.forEach((song) => {
     song.addEventListener("click", (event) => {
         // Récupérer l'index de la chanson sélectionnée
-        const songIndex = event.target.getAttribute("data-index");
+        i = event.target.getAttribute("data-index");
         // Charger les informations de la chanson sélectionnée
-        loadMusique(liste[songIndex]);
+        loadMusique(liste[i]);
         // Lancer la musique
         playMusique();
     })
